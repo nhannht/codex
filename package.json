@@ -1,0 +1,14 @@
+{
+  "name": "codex",
+  "type": "module",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.16",
+    "bun-types": "latest",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Black Chancery';
+    src: url('../fonts/blackchancery.ttf') format('truetype');
+}
+
+@layer base {
+    html {
+        font-family: "Black Chancery", system-ui, sans-serif;
+    }
+}
+
+img {
+    @apply block mx-auto w-1/2;
+}
