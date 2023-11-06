@@ -2,9 +2,10 @@
 <html lang="{{ or site.Language.LanguageCode site.Language.Lang }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
 <head>
   {{ partial "head.html" . }}
+  <script src="hammer.min.js"></script>
 </head>
-<body>
-  <header>
+<body >
+  <header class="relative">
     {{ partial "header.html" . }}
   </header>
   <main>
@@ -13,5 +14,7 @@
   <footer>
     {{ partial "footer.html" . }}
   </footer>
+
+  {{ partialCached "head/js.html" . }}
 </body>
 </html>
