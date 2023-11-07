@@ -1,0 +1,33 @@
+name: Publish Package
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: install dependences
+        run: bun install
+
+      - name: compiled tailwind
+        run: bunx tailwindcss -i base.css -o assets/css/main.css --minify
+
+      - name: dist
+        run: |
+             mkdir dist && cp -r assets dist/assets && cp -r archetypes dist/archetypes && -r content dist/content && cp -r layouts dist/layouts && cp -r static dist/static &7 cp README.md LICENSE hugo.toml dist/
+             zip -r dist.zip dist
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
