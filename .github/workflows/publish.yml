@@ -1,6 +1,9 @@
 name: Publish Package
 
-on: push
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -23,11 +26,15 @@ jobs:
 
       - name: dist
         run: |
-             mkdir dist && cp -r assets dist/assets && cp -r archetypes dist/archetypes && -r content dist/content && cp -r layouts dist/layouts && cp -r static dist/static &7 cp README.md LICENSE hugo.toml dist/
+             mkdir dist
+             cp -r assets dist/assets && cp -r archetypes dist/archetypes
+             cp -r content dist/content && cp -r layouts dist/layouts && cp -r static dist/static
+             cp README.md LICENSE hugo.toml dist/
              zip -r dist.zip dist
 
       - name: Release
         uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: dist.zip
           token: ${{ secrets.GITHUB_TOKEN }}
