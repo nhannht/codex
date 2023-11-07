@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "serve": "concurrently \"npm run tailwind\" \"npm run hugo:server\"",
-    "tailwind": "tailwindcss -i base.css -o assets/css/main.css --watch --minify",
+    "tailwind": "tailwindcss -i base.css -o assets/css/main.css --watch ",
     "hugo:server": "hugo server"
   },
   "devDependencies": {

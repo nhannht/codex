@@ -176,3 +176,4 @@ dist
 
 .vercel
 /.hugo_build.lock
+/assets/css/main.css

@@ -1,14 +1,1 @@
-{{ define "main" }}
-<h1 class="text-2xl text-red-400 text-center ">{{ .Title }}</h1>
-<div class="text-center text-lg">
-  {{ .Content }}
-</div>
-<div class="p-16 -my-6">
-    {{ range .Pages }}
-    <a href="{{ .Permalink }}" class="block p-6 my-6 bg-gray-100 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
-        <h2 class="text-2xl font-bold">{{ .Title }}</h2>
-        <p class="text-xl">{{ .Params.description }}</p>
-    </a>
-    {{ end }}
-</div>
-{{ end }}
+
