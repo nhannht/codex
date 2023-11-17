@@ -4,10 +4,10 @@
   "scripts": {
     "serve": "concurrently \"npm run tailwind\" \"npm run hugo:server\"",
     "tailwind": "tailwindcss -i base.css -o assets/css/main.css --watch ",
+    "highlightcss": "hugo gen chromastyles --style=emacs > assets/css/highlight.css",
     "hugo:server": "hugo server"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.16",
     "bun-types": "latest",
     "concurrently": "^8.2.2",
@@ -16,5 +16,8 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "highlight.js": "^11.9.0"
   }
 }

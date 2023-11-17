@@ -2,6 +2,20 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = "It 's so meow"
 
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[markup.highlight]
+codeFences = true
+guessSyntax = true
+#hl_Lines = true
+
+lineNoStart = 1
+linenos = true
+lineNumbersInTable = true
+tabWidth = 4
+#noClasses = false
+
 [[menus.main]]
 name = 'Home'
 pageRef = '/'
@@ -26,6 +40,7 @@ weight = 30
 
 
 [module]
-  [module.hugoVersion]
-    extended = false
-    min = "0.116.0"
+[module.hugoVersion]
+extended = false
+min = "0.116.0"
+
