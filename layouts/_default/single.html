@@ -1,5 +1,5 @@
 {{ define "main" }}
-<article class=" mx-auto w-10/12 lg:w-2/3 space-y-10 leading-loose text-neutral-500 text-center ">
+<article class="js-toc-content mx-auto w-10/12 md:w-2/3 space-y-10 leading-loose text-neutral-500 text-center ">
   <h1 class="text-3xl  text-center text-orange-400">{{ .Title }}</h1>
 
   {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
@@ -9,4 +9,17 @@
   {{ .Content }}
 </article>
   {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+<script>
+  tocbot.init({
+    // Where to render the table of contents.
+    tocSelector: '.js-toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: '.js-toc-content',
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: 'h1, h2, h3',
+    // For headings inside relative or absolute positioned containers within content.
+    hasInnerContainers: true,
+  });
+</script>
 {{ end }}
