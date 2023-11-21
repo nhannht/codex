@@ -2,6 +2,7 @@
 export default {
   content: [
       "layouts/**/*.html",
+      "assets/js/**/*.js",
   ],
   theme: {
     extend: {},

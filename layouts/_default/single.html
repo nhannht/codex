@@ -1,4 +1,10 @@
 {{ define "main" }}
+  <div id="jsToc" class="js-toc sm:sticky sm:top-0 sm:left-0 sm:w-1/6 sm:translate-x-0 sm:translate-y-0
+   w-1/2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 block
+    fixed bg-neutral-100/10 rounded-lg backdrop-filter backdrop-blur-sm
+   hidden
+  ">
+  </div>
 <article class="js-toc-content mx-auto w-10/12 md:w-2/3 space-y-10 leading-loose text-neutral-500 text-center ">
   <h1 class="text-3xl  text-center text-orange-400">{{ .Title }}</h1>
 
@@ -7,8 +13,14 @@
   <time class="text-base underline " datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
 
   {{ .Content }}
+
+
 </article>
   {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+
+
+
 
 <script>
   tocbot.init({
@@ -22,4 +34,12 @@
     hasInnerContainers: true,
   });
 </script>
+
+  <label  class="fixed right-0.5  bottom-0.5 inline-flex items-center cursor-pointer">
+    <input id="tocToggle" type="checkbox" value="" class="sr-only peer" >
+    <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+{{/*    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">TOC</span>*/}}
+  </label>
+
+  {{ partialCached "single/js.html" . }}
 {{ end }}
